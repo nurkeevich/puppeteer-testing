@@ -27,14 +27,12 @@ describe("Login", ()=> {
 
     it("should NOT login with invalid credentials", async ()=> {
         await helpers.click(page, "[data-toggle='modal']");
-        await helpers.shouldExist(page, "#user_login");
-        await helpers.typeText(page, utils.generateID(5), "#user_login");
-        await helpers.shouldExist(page, "#user_password");
-        await helpers.typeText(page, utils.generateID(5), "#user_password");
-
         await page.waitFor(5000);
-
-        await helpers.click(page, "#login_btn");
+        await helpers.shouldExist(page, "[placeholder='Email or phone']");
+        await helpers.typeText(page, utils.generateID(5), "[placeholder='Email or phone']");
+        await helpers.shouldExist(page, "[placeholder='Password']");
+        await helpers.typeText(page, utils.generateID(5), "[placeholder='Password']");
+        await helpers.click(page, "[class='btn btn-primary']");
         await helpers.waitForText(page, "#login_status", "Invalid credentials. Please try again.");
     })
 })
