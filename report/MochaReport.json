@@ -1,0 +1,252 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-08-04T06:35:04.398Z",
+    "end": "2019-08-04T06:35:07.562Z",
+    "duration": 3164,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d60bdede-4871-48f8-a91f-6507bc518856",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2744c52c-14d6-45c1-85b5-ee170528a6db",
+          "title": "Home page testing",
+          "fullFile": "/Users/tilekbekkadyrov/Desktop/Tilek/AutomationFrameworks/AutomationFramework/puppeteer-testing/tests/HomePage.test.js",
+          "file": "/tests/HomePage.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook",
+              "fullTitle": "Home page testing \"before all\" hook",
+              "timedOut": false,
+              "duration": 232,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "browser = await puppeteer.launch(browserOptions);\npage = await browser.newPage();",
+              "err": {},
+              "uuid": "719e2a22-d652-41b3-9534-271b47ae7d8b",
+              "parentUUID": "2744c52c-14d6-45c1-85b5-ee170528a6db",
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"before each\" hook",
+              "fullTitle": "Home page testing \"before each\" hook",
+              "timedOut": false,
+              "duration": 1164,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await helpers.loadURL(page, config.baseURL);",
+              "err": {},
+              "uuid": "b7c9e0a4-894e-4c89-a6e7-deb1530431ce",
+              "parentUUID": "2744c52c-14d6-45c1-85b5-ee170528a6db",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook",
+              "fullTitle": "Home page testing \"after all\" hook",
+              "timedOut": false,
+              "duration": 20,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await browser.close();",
+              "err": {},
+              "uuid": "bbc4d9e5-6857-439d-9940-3a3e9c7bbb2b",
+              "parentUUID": "2744c52c-14d6-45c1-85b5-ee170528a6db",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "should display [search box, signin button, Nav bar [HOME/ONLINE BANKING/FEEDBACK]] elements",
+              "fullTitle": "Home page testing should display [search box, signin button, Nav bar [HOME/ONLINE BANKING/FEEDBACK]] elements",
+              "timedOut": false,
+              "duration": 18,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await helpers.shouldExist(page, homePage.SEARCH_BOX);\nawait helpers.shouldExist(page, homePage.SIGNIN);\nawait helpers.shouldExist(page, homePage.BANKING_FEATURES);",
+              "err": {},
+              "uuid": "d8a26eab-fea6-41e7-9409-8f293cb5c481",
+              "parentUUID": "2744c52c-14d6-45c1-85b5-ee170528a6db",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d8a26eab-fea6-41e7-9409-8f293cb5c481"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 18,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "f33093ac-cde1-41ba-8655-74bebbaa5b58",
+          "title": "Login page testing",
+          "fullFile": "/Users/tilekbekkadyrov/Desktop/Tilek/AutomationFrameworks/AutomationFramework/puppeteer-testing/tests/LoginPage.test.js",
+          "file": "/tests/LoginPage.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook",
+              "fullTitle": "Login page testing \"before all\" hook",
+              "timedOut": false,
+              "duration": 230,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "browser = await puppeteer.launch(browserOptions);\npage = await browser.newPage();",
+              "err": {},
+              "uuid": "b85d2038-edf5-4c60-8e84-fd76f76b5cc1",
+              "parentUUID": "f33093ac-cde1-41ba-8655-74bebbaa5b58",
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"before each\" hook",
+              "fullTitle": "Login page testing \"before each\" hook",
+              "timedOut": false,
+              "duration": 1224,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await helpers.loadURL(page, config.baseURL);\nawait helpers.click(page, Signin);\nawait helpers.shouldExist(page, loginPage.LOGIN);",
+              "err": {},
+              "uuid": "5a2fdff1-03db-45a9-862a-9dab1a093b8f",
+              "parentUUID": "f33093ac-cde1-41ba-8655-74bebbaa5b58",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook",
+              "fullTitle": "Login page testing \"after all\" hook",
+              "timedOut": false,
+              "duration": 11,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await browser.close();",
+              "err": {},
+              "uuid": "3471ab4f-8670-4e82-b000-a9b38361c489",
+              "parentUUID": "f33093ac-cde1-41ba-8655-74bebbaa5b58",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "should not login with invalid EMAIL address",
+              "fullTitle": "Login page testing should not login with invalid EMAIL address",
+              "timedOut": false,
+              "duration": 256,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await helpers.typeText(page, utils.generateEmail(), loginPage.LOGIN);\nawait helpers.typeText(page, utils.generateID(10), loginPage.PASSWORD);\nawait helpers.click(page, loginPage.SIGNIN);\nawait helpers.waitForText(page, \"body\", \"Login and/or password are wrong.\");",
+              "err": {},
+              "uuid": "ac0578fd-fbf3-47e2-9a74-1957bdbc227d",
+              "parentUUID": "f33093ac-cde1-41ba-8655-74bebbaa5b58",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ac0578fd-fbf3-47e2-9a74-1957bdbc227d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 256,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "6.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "MochaReport",
+        "saveHtml": true,
+        "saveJson": true,
+        "useInlineDiffs": false
+      },
+      "version": "4.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "report",
+        "reportFilename": "MochaReport"
+      },
+      "version": "4.0.1"
+    }
+  }
+}

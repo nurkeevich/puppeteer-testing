@@ -1,11 +1,18 @@
 const puppeteer = require("puppeteer");
 const { toMatchImageSnapshot } = require("jest-image-snapshot");
+const config = require("../../lib/config");
 
 expect.extend({ toMatchImageSnapshot });
 
 describe("Home page snapshot", () => {
   let browser;
   let page;
+
+  // screenshot options
+  const options = {
+    path: config.homePageSnapshotPath,
+    fullPage: true
+  }
 
   beforeAll(async function() {
     browser = await puppeteer.launch({
@@ -19,9 +26,11 @@ describe("Home page snapshot", () => {
     await browser.close();
   });
 
-  test("snapshot home page", async () => {
-      await page.goto("https://example.com");
-      const image = page.screenshot();
-      expect(image).toMatchSnapshot();
+  it("should visual test", async () => {
+    // home page url
+    await page.goto(config.baseURL);
+    const image = await page.screenshot(options);
+
+    expect(image).toMatchSnapshot(config.homePageSnapshotPath);
   });
 });
