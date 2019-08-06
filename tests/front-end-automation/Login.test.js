@@ -1,11 +1,11 @@
 const puppeteer = require("puppeteer");
 const expect = require('chai').expect;
-const config = require("../lib/config");
-const helpers = require("../lib/helpers");
-const Signin = require("../pages/HomePage").SIGNIN;
-const loginPage = require("../pages/LoginPage");
-const utils = require("../lib/utils");
-const forgottenPasswordPage = require("../pages/ForgottenPasswordPage");
+const config = require("../../lib/config");
+const helpers = require("../../lib/helpers");
+const Signin = require("../../pages/HomePage").SIGNIN;
+const loginPage = require("../../pages/LoginPage");
+const utils = require("../../lib/utils");
+const forgottenPasswordPage = require("../../pages/ForgottenPasswordPage");
 
 describe("Login page testing", () => {
     let browser;
@@ -15,7 +15,7 @@ describe("Login page testing", () => {
     let browserOptions = {
         headless: config.headless,
         slowMo: config.slowMo
-    }
+    };
 
     before(async function () {
         browser = await puppeteer.launch(browserOptions);
@@ -52,12 +52,4 @@ describe("Login page testing", () => {
         const actualTitle = await page.title();
         expect(actualTitle).is.equal(expectedTitle);
     });
-
-    it("should be ready", async () => {
-        let isSelectorExist = await helpers.isSelectorExist(page, loginPage.LOGIN);
-        expect(isSelectorExist).to.be.true;
-
-        let isSelectorVisiable = await helpers.isSelectorVisible(page, loginPage.PASSWORD);
-        expect(isSelectorVisiable).to.be.true;
-    });
-})
+});
