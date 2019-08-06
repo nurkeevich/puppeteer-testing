@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
-const config = require("../lib/config");
-const helpers = require("../lib/helpers");
-const homePage = require("../pages/HomePage");
+const config = require("../../lib/config");
+const helpers = require("../../lib/helpers");
+const homePage = require("../../pages/HomePage");
 
 describe("Home page testing", () => {
   let browser;
