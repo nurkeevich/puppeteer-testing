@@ -48,8 +48,16 @@ describe("Login page testing", () => {
 
     it("should navigate user to [Forgotten Password]", async () => {
         await helpers.click(page, loginPage.FORGOT_YOUR_PASSWORD);
-        const actualTitle = await page.title();
         const expectedTitle = 'Zero - Forgotten Password';
-        expect(actualTitle).to.be(expectedTitle);
+        const actualTitle = await page.title();
+        expect(actualTitle).is.equal(expectedTitle);
+    });
+
+    it("should be ready", async () => {
+        let isSelectorExist = await helpers.isSelectorExist(page, loginPage.LOGIN);
+        expect(isSelectorExist).to.be.true;
+
+        let isSelectorVisiable = await helpers.isSelectorVisible(page, loginPage.PASSWORD);
+        expect(isSelectorVisiable).to.be.true;
     });
 })
