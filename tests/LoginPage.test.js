@@ -1,9 +1,11 @@
 const puppeteer = require("puppeteer");
+const expect = require('chai').expect;
 const config = require("../lib/config");
 const helpers = require("../lib/helpers");
 const Signin = require("../pages/HomePage").SIGNIN;
 const loginPage = require("../pages/LoginPage");
 const utils = require("../lib/utils");
+const forgottenPasswordPage = require("../pages/ForgottenPasswordPage");
 
 describe("Login page testing", () => {
     let browser;
@@ -35,5 +37,19 @@ describe("Login page testing", () => {
         await helpers.typeText(page, utils.generateID(10), loginPage.PASSWORD);
         await helpers.click(page, loginPage.SIGNIN);
         await helpers.waitForText(page, "body", "Login and/or password are wrong.");
-    })
+    });
+
+    it("should not login with invalid Password", async () => {
+        await helpers.typeText(page, utils.generateEmail(), loginPage.LOGIN);
+        await helpers.typeText(page, utils.generateID(10), loginPage.PASSWORD);
+        await helpers.click(page, loginPage.SIGNIN);
+        await helpers.waitForText(page, "body", "Login and/or password are wrong.");
+    });
+
+    it("should navigate user to [Forgotten Password]", async () => {
+        await helpers.click(page, loginPage.FORGOT_YOUR_PASSWORD);
+        const actualTitle = await page.title();
+        const expectedTitle = 'Zero - Forgotten Password';
+        expect(actualTitle).to.be(expectedTitle);
+    });
 })
