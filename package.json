@@ -4,8 +4,8 @@
   "description": "Puppeteer Testing",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter mochawesome --reporter-options reportDir=report,reportFilename=MochaReport --timeout=30000 ./tests/front-end-automation",
-    "test:api": "mocha --timeout=30000 ./tests/api-automation",
+    "test": "mocha --reporter mochawesome --reporter-options reportDir=report/report,reportFilename=MochaReport --timeout=30000 ./tests/front-end-automation",
+    "test:api": "mocha --reporter mochawesome --reporter-options reportDir=report/report-api,reportFilename=MochaAPIReport --timeout=30000 ./tests/api-automation",
     "test:snapshot": "jest --config=jest.config.js --detectOpenHandles --forceExit",
     "test:snapshot:update": "jest --config=jest.config.js --updateSnapshot --detectOpenHandles --forceExit"
   },
