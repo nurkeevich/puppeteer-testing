@@ -10,14 +10,12 @@ jobs:
           name: update-npm
           command: "sudo yarn install"
       - restore_cache:
-          key: dependency-cache-{{ checksum 
-          "package.json"  }}  
+          key: dependency-cache-{{checksum "package.json"}}  
       - run:
           name: install-npm-wee
           command: yarn install
       - save_cache:
-          key: dependency_cache-{{ checksum 
-          "package.json"  }}
+          key: dependency_cache-{{checksum "package.json"}}
           paths: 
             - ./node_modules
 
