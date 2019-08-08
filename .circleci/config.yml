@@ -1,0 +1,31 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/public
+    docker:
+      - image: circleci/node:10.15.3
+    steps:
+      - checkout
+      - run:
+          name: yarn-update
+          command: "sudo yarn install"
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json"}}  
+      - run:
+          name: install-npm-wee
+          command: yarn install
+      - save_cache:
+          key: dependency_cache-{{ checksum "package.json"  }}
+          paths: - ./node_modules
+
+      - run: 
+          name: test
+          command: yarn test
+      - store_artifacts:
+          path: test-results.xml
+          prefix: tests
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+      - store_test_results:
+          path: test_results.xml 
