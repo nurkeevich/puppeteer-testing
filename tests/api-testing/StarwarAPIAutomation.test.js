@@ -1,6 +1,7 @@
 const request = require('request');
 const expect = require('chai').expect;
 const baseURL = 'https://swapi.co/api';
+const chai = require('chai');
 
 describe('return Luke', function () {
     it('should return Luke', function (done) {
@@ -19,17 +20,19 @@ describe('return Luke', function () {
         );
     });
 
-    it('should post user to database', function (done) {
-        request.post(
+    it('should return Luke Skaywalker', function (done) {
+        request.get(
+            // uri
             {
-                uri: baseURL + '/people/1'
+                uri: baseURL + '/people/1/'
             },
 
-            {
-
-            },
-
-            async function (error, response, body) {
+            // call back function
+            function (error, response, body) {
+                let bodyObj = JSON.parse(body);
+                expect(response.statusCode).to.equal(200);
+                expect(bodyObj.name).to.equal('Luke Skywalker');
+                expect(bodyObj.hair_color).to.equal('blond');
                 done();
             }
         );
