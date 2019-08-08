@@ -16,7 +16,8 @@ jobs:
           command: yarn install
       - save_cache:
           key: dependency_cache-{{ checksum "package.json"  }}
-          paths: - ./node_modules
+          paths: 
+            - ./node_modules
 
       - run: 
           name: test
