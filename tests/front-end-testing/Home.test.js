@@ -12,16 +12,16 @@ describe("Home page testing", () => {
     slowMo: config.slowMo
   };
 
-  before(async function () {
+  before(async () => {
     browser = await puppeteer.launch(browserOptions);
     page = await browser.newPage();
   });
 
-  after(async function () {
+  after(async () => {
     await browser.close();
   });
 
-  beforeEach(async function () {
+  beforeEach(async () => {
     await helpers.loadURL(page, config.baseURL);
   });
 
