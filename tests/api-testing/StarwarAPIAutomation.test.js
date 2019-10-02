@@ -13,6 +13,7 @@ describe('return Luke', function () {
                 expect(bodyObj.hair_color).to.equal("blond");
                 expect(bodyObj.skin_color).to.equal('fair');
                 expect(bodyObj.gender).to.equal('male');
+                expect(bodyObj.birth_year).to.equal('19BBY');
                 expect(response.statusCode).to.equal(200);
                 console.log(body);
                 done();
